@@ -12,10 +12,20 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-// const Factory = use('Factory')
+const Factory = use('Factory')
 
-// Factory.blueprint('App/Models/User', (faker) => {
-//   return {
-//     username: faker.username()
-//   }
-// })
+Factory.blueprint('App/Models/Ingredient', (faker) => {
+  const unit = ['unit', 'g', 'l', 'pinch', 'tsp', 'tbsp']
+
+  return {
+    name: faker.word(),
+    unit: unit[Math.floor(Math.random() * unit.length)]
+  }
+})
+
+
+Factory.blueprint('App/Models/Recipe', (faker) => {
+  return {
+    name: faker.word()
+  }
+})
