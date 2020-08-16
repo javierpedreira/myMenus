@@ -13,11 +13,21 @@
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
 
-class RecipeSeeder {
+class Seeder {
   async run() {
+    let recipes = []
     for (let i = 0; i < 10; i++) {
-      await this.createRecipe()
+      recipes.push(await this.createRecipe())
     }
+
+    const meal = await Factory.model('App/Models/Meal').create()
+    const recipe1 = recipes[Math.floor(Math.random() * recipes.length)]
+    const recipe2 = recipes[Math.floor(Math.random() * recipes.length)]
+
+    const date = Date.now()
+    await meal.recipes().attach([recipe1.id, recipe2.id], (row) => {
+      row.date = date
+    })
   }
 
   async createRecipe() {
@@ -31,7 +41,9 @@ class RecipeSeeder {
     await recipe.ingredients().attach(ingredientIds, (row) => {
       row.quantity = Math.random()
     })
+
+    return recipe
   }
 }
 
-module.exports = RecipeSeeder
+module.exports = Seeder

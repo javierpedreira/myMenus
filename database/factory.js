@@ -23,9 +23,16 @@ Factory.blueprint('App/Models/Ingredient', (faker) => {
   }
 })
 
-
 Factory.blueprint('App/Models/Recipe', (faker) => {
   return {
     name: faker.word()
+  }
+})
+
+Factory.blueprint('App/Models/Meal', () => {
+  const type = ['breakfast', 'lunch', 'dinner']
+
+  return {
+    type: type[Math.floor(Math.random() * type.length)]
   }
 })
