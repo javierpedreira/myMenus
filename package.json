@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test",
-    "migrate": "adonis migration:run"
+    "adonis": "adonis"
   },
   "keywords": [
     "adonisjs",
