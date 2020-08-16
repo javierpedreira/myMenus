@@ -5,16 +5,16 @@ const Schema = use('Schema')
 
 class MealIngredientsSchema extends Schema {
   up() {
-    this.create('meal_ingredients', (table) => {
-      table.integer('meal_id').unsigned().references('id').inTable('meals')
+    this.create('ingredients_meals', (table) => {
       table.integer('ingredient_id').unsigned().references('id').inTable('ingredients')
+      table.integer('meal_id').unsigned().references('id').inTable('meals')
       table.integer('quantity').unsigned().notNullable()
       table.timestamps()
     })
   }
 
   down() {
-    this.drop('meal_ingredients')
+    this.drop('ingredients_meals')
   }
 }
 
