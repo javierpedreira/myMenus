@@ -12,6 +12,7 @@
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory')
+const ShoppingListItem = use('App/Models/ShoppingListItem')
 
 class Seeder {
   async run() {
@@ -28,6 +29,8 @@ class Seeder {
     await meal.recipes().attach([recipe1.id, recipe2.id], (row) => {
       row.date = date
     })
+
+    await ShoppingListItem.create(date, date) 
   }
 
   async createRecipe() {

@@ -18,3 +18,4 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 Route.get('recipes', 'RecipeController.index')
+Route.get('shopping-list', 'ShoppingListController.index')
