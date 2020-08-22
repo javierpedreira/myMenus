@@ -39,7 +39,7 @@ class Seeder {
     })
 
     await recipe.ingredients().attach(ingredientIds, (row) => {
-      row.quantity = Math.random()
+      row.quantity = randomNumber(1, 10)
     })
 
     return recipe
@@ -47,3 +47,10 @@ class Seeder {
 }
 
 module.exports = Seeder
+
+const randomNumber = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
