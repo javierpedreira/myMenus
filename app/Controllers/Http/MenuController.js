@@ -1,7 +1,7 @@
 "use strict";
 const Recipe = use("App/Models/Recipe");
 const Meal = use("App/Models/Meal");
-
+const MealRecipe = use("App/Models/MealRecipe");
 class MenuController {
   async create({ request, response, view }) {
     // For each date in Range Create MealRecipe for each Meal
@@ -22,11 +22,7 @@ class MenuController {
     const { meals, dates, recipes } = data;
 
     for (let i = 0; i < meals.length; i++) {
-      const meal = await Meal.find(meals[i]);
-
-      meal.recipes().attach([recipes[i]], (row) => {
-        row.date = dates[i];
-      });
+      MealRecipe.create(meals[i], recipes[i], dates[i]);
     }
   }
 }

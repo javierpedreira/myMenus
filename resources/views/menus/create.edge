@@ -5,10 +5,10 @@
   @each(meal in meals)
     <div> {{ meal.type }} for {{startDate}}</div>
 
-    <input type="hidden" name="dates" value="{{startDate}}" />
-    <input type="hidden" name="meals" value="{{meal.id}}" />
+    <input type="hidden" name="dates[]" value="{{startDate}}" />
+    <input type="hidden" name="meals[]" value="{{meal.id}}" />
 
-    <select name="recipes" id="recipes">
+    <select name="recipes[]" id="recipes">
       <option value="">--Select a recipe--</option>
       @each(recipe in recipes)
         <option value="{{recipe.id}}">{{recipe.name}}</option>
