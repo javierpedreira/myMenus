@@ -8,6 +8,7 @@ class MealsSchema extends Schema {
     this.create('meals', (table) => {
       table.increments()
       table.string('type', 255).notNullable().index()
+      table.integer('user_id').unsigned().references('id').inTable('users')
       table.timestamps()
     })
   }
