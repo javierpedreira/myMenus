@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test",
-    "watch" : "nodemon --watch app server.js"
+    "watch": "nodemon --watch app server.js"
   },
   "keywords": [
     "adonisjs",
