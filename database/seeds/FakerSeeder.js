@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| RecipeSeeder
+| FakerSeeder
 |--------------------------------------------------------------------------
 |
 | Make use of the Factory instance to seed database with dummy data or
@@ -14,7 +14,7 @@
 const Factory = use('Factory')
 const ShoppingListItem = use('App/Models/ShoppingListItem')
 
-class Seeder {
+class FakerSeeder {
   async run() {
     let recipes = []
     for (let i = 0; i < 10; i++) {
@@ -49,7 +49,7 @@ class Seeder {
   }
 }
 
-module.exports = Seeder
+module.exports = FakerSeeder
 
 const randomNumber = (min, max) => {
   min = Math.ceil(min);
