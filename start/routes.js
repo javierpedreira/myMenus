@@ -19,6 +19,7 @@ const Route = use("Route");
 Route.on("/").render("welcome");
 
 Route.post("menu", "MenuController.store");
+Route.post("menu/create", "MenuController.setMenuForm");
 Route.get("menu/:startDate/:endDate", "MenuController.create");
 
 Route.get("recipes", "RecipeController.index");

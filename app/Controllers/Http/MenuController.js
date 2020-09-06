@@ -6,6 +6,15 @@ const MealRecipe = use("App/Models/MealRecipe");
 const ShoppingListItem = use("App/Models/ShoppingListItem");
 
 class MenuController {
+  async setMenuForm({ request, response }) {
+    const { startDate, endDate } = request.only(["startDate", "endDate"]);
+
+    const start = moment(startDate).format("DD-MM-YYYY")
+    const end = moment(endDate).format("DD-MM-YYYY")
+    
+    return response.redirect(`${start}/${end}`)
+  }
+
   async create({ request, response, view }) {
     const meals = await Meal.all();
     const recipes = await Recipe.all();
